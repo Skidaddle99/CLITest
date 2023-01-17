@@ -1,0 +1,10 @@
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\bin\Debug\CLITest.Mono.Options.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\bin\Debug\CLITest.Mono.Options.pdb
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\bin\Debug\Mono.Options.dll
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\bin\Debug\Mono.Options.pdb
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.csproj.AssemblyReference.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.csproj.CoreCompileInputs.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.csproj.CopyComplete
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest.Mono.Options\obj\Debug\CLITest.Mono.Options.pdb

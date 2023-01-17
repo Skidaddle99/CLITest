@@ -1,0 +1,1060 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CliFx</name>
+    </assembly>
+    <members>
+        <member name="T:CliFx.ApplicationConfiguration">
+            <summary>
+            Configuration of an application.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationConfiguration.CommandTypes">
+            <summary>
+            Command types defined in this application.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationConfiguration.IsDebugModeAllowed">
+            <summary>
+            Whether debug mode is allowed in this application.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationConfiguration.IsPreviewModeAllowed">
+            <summary>
+            Whether preview mode is allowed in this application.
+            </summary>
+        </member>
+        <member name="M:CliFx.ApplicationConfiguration.#ctor(System.Collections.Generic.IReadOnlyList{System.Type},System.Boolean,System.Boolean)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.ApplicationConfiguration" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.ApplicationMetadata">
+            <summary>
+            Metadata associated with an application.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationMetadata.Title">
+            <summary>
+            Application title.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationMetadata.ExecutableName">
+            <summary>
+            Application executable name.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationMetadata.Version">
+            <summary>
+            Application version.
+            </summary>
+        </member>
+        <member name="P:CliFx.ApplicationMetadata.Description">
+            <summary>
+            Application description.
+            </summary>
+        </member>
+        <member name="M:CliFx.ApplicationMetadata.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.ApplicationMetadata" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Attributes.CommandAttribute">
+            <summary>
+            Annotates a type that defines a command.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandAttribute.Name">
+             <summary>
+             Command's name.
+             </summary>
+             <remarks>
+             Command can have no name, in which case it's treated as the default command.
+            
+             All commands registered in an application must have unique names (comparison IS NOT case-sensitive).
+             Only one command without a name is allowed in an application.
+             </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandAttribute.Description">
+            <summary>
+            Command description.
+            This is shown to the user in the help text.
+            </summary>
+        </member>
+        <member name="M:CliFx.Attributes.CommandAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandAttribute" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Attributes.CommandAttribute.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandAttribute" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Attributes.CommandOptionAttribute">
+            <summary>
+            Annotates a property that defines a command option.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.Name">
+            <summary>
+            Option name.
+            </summary>
+            <remarks>
+            Must contain at least two characters and start with a letter.
+            Either <see cref="P:CliFx.Attributes.CommandOptionAttribute.Name" /> or <see cref="P:CliFx.Attributes.CommandOptionAttribute.ShortName" /> must be set.
+            All options in a command must have unique names (comparison IS NOT case-sensitive).
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.ShortName">
+            <summary>
+            Option short name.
+            </summary>
+            <remarks>
+            Either <see cref="P:CliFx.Attributes.CommandOptionAttribute.Name" /> or <see cref="P:CliFx.Attributes.CommandOptionAttribute.ShortName" /> must be set.
+            All options in a command must have unique short names (comparison IS case-sensitive).
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.IsRequired">
+            <summary>
+            Whether this option is required (default: <c>false</c>).
+            If an option is required, the user will get an error if they don't set it.
+            </summary>
+            <remarks>
+            You can use the <c>required</c> keyword on the property (introduced in C# 11) to implicitly
+            set <see cref="P:CliFx.Attributes.CommandOptionAttribute.IsRequired" /> to <c>true</c>.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.EnvironmentVariable">
+            <summary>
+            Environment variable whose value will be used as a fallback if the option
+            has not been explicitly set through command line arguments.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.Description">
+            <summary>
+            Option description.
+            This is shown to the user in the help text.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.Converter">
+            <summary>
+            Custom converter used for mapping the raw command line argument into
+            a value expected by the underlying property.
+            </summary>
+            <remarks>
+            Converter must derive from <see cref="T:CliFx.Extensibility.BindingConverter`1" />.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandOptionAttribute.Validators">
+            <summary>
+            Custom validators used for verifying the value of the underlying
+            property, after it has been bound.
+            </summary>
+            <remarks>
+            Validators must derive from <see cref="T:CliFx.Extensibility.BindingValidator`1" />.
+            </remarks>
+        </member>
+        <member name="M:CliFx.Attributes.CommandOptionAttribute.#ctor(System.String,System.Nullable{System.Char})">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandOptionAttribute" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Attributes.CommandOptionAttribute.#ctor(System.String,System.Char)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandOptionAttribute" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Attributes.CommandOptionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandOptionAttribute" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Attributes.CommandOptionAttribute.#ctor(System.Char)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandOptionAttribute" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Attributes.CommandParameterAttribute">
+            <summary>
+            Annotates a property that defines a command parameter.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.Order">
+            <summary>
+            Parameter order.
+            Higher order means the parameter appears later, lower order means
+            it appears earlier.
+            </summary>
+            <remarks>
+            All parameters in a command must have unique order.
+            Parameter whose type is a non-scalar (e.g. array), must always be the last in order.
+            Only one non-scalar parameter is allowed in a command.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.IsRequired">
+            <summary>
+            Whether this parameter is required (default: <c>true</c>).
+            If a parameter is required, the user will get an error if they don't set it.
+            </summary>
+            <remarks>
+            Parameter marked as non-required must always be the last in order.
+            Only one non-required parameter is allowed in a command.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.Name">
+            <summary>
+            Parameter name.
+            This is shown to the user in the help text.
+            </summary>
+            <remarks>
+            If this isn't specified, parameter name is inferred from the property name.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.Description">
+            <summary>
+            Parameter description.
+            This is shown to the user in the help text.
+            </summary>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.Converter">
+            <summary>
+            Custom converter used for mapping the raw command line argument into
+            a value expected by the underlying property.
+            </summary>
+            <remarks>
+            Converter must derive from <see cref="T:CliFx.Extensibility.BindingConverter`1" />.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Attributes.CommandParameterAttribute.Validators">
+            <summary>
+            Custom validators used for verifying the value of the underlying
+            property, after it has been bound.
+            </summary>
+            <remarks>
+            Validators must derive from <see cref="T:CliFx.Extensibility.BindingValidator`1" />.
+            </remarks>
+        </member>
+        <member name="M:CliFx.Attributes.CommandParameterAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Attributes.CommandParameterAttribute" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.CliApplication">
+            <summary>
+            Command line application facade.
+            </summary>
+        </member>
+        <member name="P:CliFx.CliApplication.Metadata">
+            <summary>
+            Application metadata.
+            </summary>
+        </member>
+        <member name="P:CliFx.CliApplication.Configuration">
+            <summary>
+            Application configuration.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplication.#ctor(CliFx.ApplicationMetadata,CliFx.ApplicationConfiguration,CliFx.Infrastructure.IConsole,CliFx.Infrastructure.ITypeActivator)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.CliApplication" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplication.RunAsync(System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Runs the application with the specified command line arguments and environment variables.
+            Returns an exit code which indicates whether the application completed successfully.
+            </summary>
+            <remarks>
+            When running WITHOUT debugger (i.e. in production), this method swallows all exceptions and
+            reports them to the console.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplication.RunAsync(System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Runs the application with the specified command line arguments.
+            Environment variables are resolved automatically.
+            Returns an exit code which indicates whether the application completed successfully.
+            </summary>
+            <remarks>
+            When running WITHOUT debugger (i.e. in production), this method swallows all exceptions and
+            reports them to the console.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplication.RunAsync">
+            <summary>
+            Runs the application.
+            Command line arguments and environment variables are resolved automatically.
+            Returns an exit code which indicates whether the application completed successfully.
+            </summary>
+            <remarks>
+            When running WITHOUT debugger (i.e. in production), this method swallows all exceptions and
+            reports them to the console.
+            </remarks>
+        </member>
+        <member name="T:CliFx.CliApplicationBuilder">
+            <summary>
+            Builder for <see cref="T:CliFx.CliApplication" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommand(System.Type)">
+            <summary>
+            Adds a command to the application.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommand``1">
+            <summary>
+            Adds a command to the application.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommands(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Adds multiple commands to the application.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommandsFrom(System.Reflection.Assembly)">
+            <summary>
+            Adds commands from the specified assembly to the application.
+            </summary>
+            <remarks>
+            This method looks for public non-abstract classes that implement <see cref="T:CliFx.ICommand" />
+            and are annotated by <see cref="T:CliFx.Attributes.CommandAttribute" />.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommandsFrom(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Adds commands from the specified assemblies to the application.
+            </summary>
+            <remarks>
+            This method looks for public non-abstract classes that implement <see cref="T:CliFx.ICommand" />
+            and are annotated by <see cref="T:CliFx.Attributes.CommandAttribute" />.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AddCommandsFromThisAssembly">
+            <summary>
+            Adds commands from the calling assembly to the application.
+            </summary>
+            <remarks>
+            This method looks for public non-abstract classes that implement <see cref="T:CliFx.ICommand" />
+            and are annotated by <see cref="T:CliFx.Attributes.CommandAttribute" />.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AllowDebugMode(System.Boolean)">
+            <summary>
+            Specifies whether debug mode (enabled with the [debug] directive) is allowed in the application.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.AllowPreviewMode(System.Boolean)">
+            <summary>
+            Specifies whether preview mode (enabled with the [preview] directive) is allowed in the application.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.SetTitle(System.String)">
+            <summary>
+            Sets application title, which is shown in the help text.
+            </summary>
+            <remarks>
+            By default, application title is inferred from the assembly name.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.SetExecutableName(System.String)">
+            <summary>
+            Sets application executable name, which is shown in the help text.
+            </summary>
+            <remarks>
+            By default, application executable name is inferred from the assembly file name.
+            The file name is also prefixed with `dotnet` if it's a DLL file.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.SetVersion(System.String)">
+            <summary>
+            Sets application version, which is shown in the help text or
+            when the user specifies the version option.
+            </summary>
+            <remarks>
+            By default, application version is inferred from the assembly version.
+            </remarks>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.SetDescription(System.String)">
+            <summary>
+            Sets application description, which is shown in the help text.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.UseConsole(CliFx.Infrastructure.IConsole)">
+            <summary>
+            Configures the application to use the specified implementation of <see cref="T:CliFx.Infrastructure.IConsole" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.UseTypeActivator(CliFx.Infrastructure.ITypeActivator)">
+            <summary>
+            Configures the application to use the specified implementation of <see cref="T:CliFx.Infrastructure.ITypeActivator" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.UseTypeActivator(System.Func{System.Type,System.Object})">
+            <summary>
+            Configures the application to use the specified function for activating types.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.UseTypeActivator(System.IServiceProvider)">
+            <summary>
+            Configures the application to use the specified service provider for activating types.
+            </summary>
+        </member>
+        <member name="M:CliFx.CliApplicationBuilder.Build">
+            <summary>
+            Creates a configured instance of <see cref="T:CliFx.CliApplication" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Exceptions.CliFxException">
+            <summary>
+            Exception thrown when there is an error during application execution.
+            </summary>
+        </member>
+        <member name="P:CliFx.Exceptions.CliFxException.ExitCode">
+            <summary>
+            Returned exit code.
+            </summary>
+        </member>
+        <member name="P:CliFx.Exceptions.CliFxException.ShowHelp">
+            <summary>
+            Whether to show the help text before exiting.
+            </summary>
+        </member>
+        <member name="M:CliFx.Exceptions.CliFxException.#ctor(System.String,System.Int32,System.Boolean,System.Exception)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Exceptions.CliFxException" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Exceptions.CommandException">
+            <summary>
+            Exception thrown when a command cannot proceed with its normal execution due to an error.
+            Use this exception to report an error to the console and return a specific exit code.
+            </summary>
+        </member>
+        <member name="M:CliFx.Exceptions.CommandException.#ctor(System.String,System.Int32,System.Boolean,System.Exception)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Exceptions.CommandException" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Extensibility.BindingConverter`1">
+            <summary>
+            Base type for custom converters.
+            </summary>
+        </member>
+        <member name="M:CliFx.Extensibility.BindingConverter`1.Convert(System.String)">
+            <summary>
+            Parses value from a raw command line argument.
+            </summary>
+        </member>
+        <member name="T:CliFx.Extensibility.BindingValidationError">
+            <summary>
+            Represents a validation error.
+            </summary>
+        </member>
+        <member name="P:CliFx.Extensibility.BindingValidationError.Message">
+            <summary>
+            Error message shown to the user.
+            </summary>
+        </member>
+        <member name="M:CliFx.Extensibility.BindingValidationError.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Extensibility.BindingValidationError" />.
+            </summary>
+        </member>
+        <member name="T:CliFx.Extensibility.BindingValidator`1">
+            <summary>
+            Base type for custom validators.
+            </summary>
+        </member>
+        <member name="M:CliFx.Extensibility.BindingValidator`1.Ok">
+            <summary>
+            Returns a successful validation result.
+            </summary>
+        </member>
+        <member name="M:CliFx.Extensibility.BindingValidator`1.Error(System.String)">
+            <summary>
+            Returns a non-successful validation result.
+            </summary>
+        </member>
+        <member name="M:CliFx.Extensibility.BindingValidator`1.Validate(`0)">
+            <summary>
+            Validates the value bound to a parameter or an option.
+            Returns null if validation is successful, or an error in case of failure.
+            </summary>
+            <remarks>
+            You can use the utility methods <see cref="M:CliFx.Extensibility.BindingValidator`1.Ok" /> and <see cref="M:CliFx.Extensibility.BindingValidator`1.Error(System.String)" /> to
+            create an appropriate result.
+            </remarks>
+        </member>
+        <member name="T:CliFx.ICommand">
+            <summary>
+            Entry point through which the user interacts with the command line application.
+            </summary>
+        </member>
+        <member name="M:CliFx.ICommand.ExecuteAsync(CliFx.Infrastructure.IConsole)">
+            <summary>
+            Executes the command using the specified implementation of <see cref="T:CliFx.Infrastructure.IConsole" />.
+            </summary>
+            <remarks>
+            If the execution of the command is not asynchronous, simply end the method with
+            <code>return default;</code>
+            </remarks>
+        </member>
+        <member name="T:CliFx.Infrastructure.ConsoleReader">
+            <summary>
+            Implements a <see cref="T:System.IO.TextReader" /> for reading characters from a console stream.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.ConsoleReader.Console">
+            <summary>
+            Console that owns this stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.#ctor(CliFx.Infrastructure.IConsole,System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.ConsoleReader" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.#ctor(CliFx.Infrastructure.IConsole,System.IO.Stream)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.ConsoleReader" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.Peek">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.Read">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.Read(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadBlock(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadLine">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadToEnd">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadBlockAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadLineAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.ReadToEndAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleReader.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.ConsoleWriter">
+            <summary>
+            Implements a <see cref="T:System.IO.TextWriter" /> for writing characters to a console stream.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.ConsoleWriter.Console">
+            <summary>
+            Console that owns this stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.#ctor(CliFx.Infrastructure.IConsole,System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.ConsoleWriter" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.#ctor(CliFx.Infrastructure.IConsole,System.IO.Stream)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.ConsoleWriter" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Char[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.String,System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.String,System.Object,System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.UInt64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Decimal)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Write(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteAsync(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Char[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.String,System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.String,System.Object,System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.UInt64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Decimal)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLine(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLineAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLineAsync(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLineAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.WriteLineAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Flush">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.FlushAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleWriter.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.DefaultTypeActivator">
+            <summary>
+            Implementation of <see cref="T:CliFx.Infrastructure.ITypeActivator" /> that instantiates an object
+            by using its parameterless constructor.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.DefaultTypeActivator.CreateInstance(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.DelegateTypeActivator">
+            <summary>
+            Implementation of <see cref="T:CliFx.Infrastructure.ITypeActivator" /> that instantiates an object
+            by using a predefined function.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.DelegateTypeActivator.#ctor(System.Func{System.Type,System.Object})">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.DelegateTypeActivator" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.DelegateTypeActivator.CreateInstance(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.FakeConsole">
+            <summary>
+            Implementation of <see cref="T:CliFx.Infrastructure.IConsole" /> that uses the provided fake
+            standard input, output, and error streams.
+            </summary>
+            <remarks>
+            Use this implementation in tests to verify how a command interacts with the console.
+            </remarks>
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.Input">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.IsInputRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.Output">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.IsOutputRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.Error">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.IsErrorRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.ForegroundColor">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.BackgroundColor">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.WindowWidth">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.WindowHeight">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.CursorLeft">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.FakeConsole.CursorTop">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.#ctor(System.IO.Stream,System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.FakeConsole" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.ReadKey(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.EnqueueKey(System.ConsoleKeyInfo)">
+            <summary>
+            Enqueues a simulated key press, which can then be read by calling <see cref="M:CliFx.Infrastructure.FakeConsole.ReadKey(System.Boolean)" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.ResetColor">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.RegisterCancellationHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.RequestCancellation(System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a cancellation signal to the currently executing command.
+            </summary>
+            <remarks>
+            If the command is not cancellation-aware (i.e. it doesn't call <see cref="M:CliFx.Infrastructure.IConsole.RegisterCancellationHandler" />),
+            this method will not have any effect.
+            </remarks>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeConsole.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.FakeInMemoryConsole">
+            <summary>
+            Implementation of <see cref="T:CliFx.Infrastructure.IConsole" /> that uses fake
+            standard input, output, and error streams backed by in-memory stores.
+            </summary>
+            <remarks>
+            Use this implementation in tests to verify how a command interacts with the console.
+            </remarks>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.FakeInMemoryConsole" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.WriteInput(System.Byte[])">
+            <summary>
+            Writes data to the input stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.WriteInput(System.String)">
+            <summary>
+            Writes data to the input stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.ReadOutputBytes">
+            <summary>
+            Reads the data written to the output stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.ReadOutputString">
+            <summary>
+            Reads the data written to the output stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.ReadErrorBytes">
+            <summary>
+            Reads the data written to the error stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.ReadErrorString">
+            <summary>
+            Reads the data written to the error stream.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.FakeInMemoryConsole.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:CliFx.Infrastructure.IConsole">
+            <summary>
+            Abstraction for the console layer.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.Input">
+            <summary>
+            Input stream (stdin).
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.IsInputRedirected">
+            <summary>
+            Gets a value that indicates whether input has been redirected from the standard input stream.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.Output">
+            <summary>
+            Output stream (stdout).
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.IsOutputRedirected">
+            <summary>
+            Gets a value that indicates whether output has been redirected from the standard output stream.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.Error">
+            <summary>
+            Error stream (stderr).
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.IsErrorRedirected">
+            <summary>
+            Gets a value that indicates whether error output has been redirected from the standard error stream.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.ForegroundColor">
+            <summary>
+            Gets or sets the foreground color of the console
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.BackgroundColor">
+            <summary>
+            Gets or sets the background color of the console.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.WindowWidth">
+            <summary>
+            Gets or sets the width of the console window.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.WindowHeight">
+            <summary>
+            Gets or sets the height of the console window.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.CursorLeft">
+            <summary>
+            Gets or sets the column position of the cursor within the buffer area.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.IConsole.CursorTop">
+            <summary>
+            Gets or sets the row position of the cursor within the buffer area.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.IConsole.ReadKey(System.Boolean)">
+            <summary>
+            Obtains the next character or function key pressed by the user.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.IConsole.ResetColor">
+            <summary>
+            Sets the foreground and background console colors to their defaults.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.IConsole.Clear">
+            <summary>
+            Clears the console buffer and corresponding console window of display information.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.IConsole.RegisterCancellationHandler">
+            <summary>
+            Registers a handler for the interrupt signal (Ctrl+C) on the console and returns
+            a token representing the cancellation request.
+            Subsequent calls to this method have no side effects and return the same token.
+            </summary>
+            <remarks>
+            <para>
+            Calling this method effectively makes the command cancellation-aware, which
+            means that sending the interrupt signal won't immediately terminate the application,
+            but will instead trigger a token that the command can use to exit more gracefully.
+            </para>
+            <para>
+            Note that the handler is only respected when the user sends the interrupt signal for the first time.
+            If the user decides to issue the signal again, the application will terminate immediately
+            regardless of whether the command is cancellation-aware.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:CliFx.Infrastructure.ConsoleExtensions">
+            <summary>
+            Extensions for <see cref="T:CliFx.Infrastructure.IConsole" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleExtensions.WithForegroundColor(CliFx.Infrastructure.IConsole,System.ConsoleColor)">
+            <summary>
+            Sets the specified foreground color and returns an <see cref="T:System.IDisposable" />
+            that will reset the color back to its previous value upon disposal.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleExtensions.WithBackgroundColor(CliFx.Infrastructure.IConsole,System.ConsoleColor)">
+            <summary>
+            Sets the specified background color and returns an <see cref="T:System.IDisposable" />
+            that will reset the color back to its previous value upon disposal.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ConsoleExtensions.WithColors(CliFx.Infrastructure.IConsole,System.ConsoleColor,System.ConsoleColor)">
+            <summary>
+            Sets the specified foreground and background colors and returns an <see cref="T:System.IDisposable" />
+            that will reset the colors back to their previous values upon disposal.
+            </summary>
+        </member>
+        <member name="T:CliFx.Infrastructure.ITypeActivator">
+            <summary>
+            Abstraction for a service that can instantiate objects at runtime.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.ITypeActivator.CreateInstance(System.Type)">
+            <summary>
+            Creates an instance of the specified type.
+            </summary>
+        </member>
+        <member name="T:CliFx.Infrastructure.SystemConsole">
+            <summary>
+            Implementation of <see cref="T:CliFx.Infrastructure.IConsole" /> that represents the real system console.
+            </summary>
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.Input">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.IsInputRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.Output">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.IsOutputRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.Error">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.IsErrorRedirected">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.ForegroundColor">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.BackgroundColor">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.WindowWidth">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.WindowHeight">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.CursorLeft">
+            <inheritdoc />
+        </member>
+        <member name="P:CliFx.Infrastructure.SystemConsole.CursorTop">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:CliFx.Infrastructure.SystemConsole" />.
+            </summary>
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.ReadKey(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.ResetColor">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.RegisterCancellationHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:CliFx.Infrastructure.SystemConsole.Dispose">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\CLITestCliFx.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\CLITestCliFx.pdb
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\CliFx.dll
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\CliFx.xml
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.csproj.AssemblyReference.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.csproj.CoreCompileInputs.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.csproj.CopyComplete
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITestCliFx\obj\Debug\CLITestCliFx.pdb

@@ -1,0 +1,10 @@
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\bin\Debug\CLITest.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\bin\Debug\CLITest.pdb
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.csproj.AssemblyReference.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.csproj.CoreCompileInputs.cache
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.exe
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.pdb
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\bin\Debug\CommandLine.dll
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\bin\Debug\CommandLine.xml
+C:\Users\Mads Nielsen\RiderProjects\CLITest\CLITest\obj\Debug\CLITest.csproj.CopyComplete
